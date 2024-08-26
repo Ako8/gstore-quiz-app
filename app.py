@@ -62,13 +62,12 @@ def quiz(subject_id, difficulty):
     return render_template('quiz.html', subject=subject, questions=questions, difficulty=difficulty)
 
 
-@app.route('/9d18677d-ea9e-456e-b7d2-946a0da52abb/result', methods=['POST'])
-def result():
-    total_questions = 0
+@app.route('/9d18677d-ea9e-456e-b7d2-946a0da52abb/result/<int:total_questions>', methods=['POST'])
+def result(total_questions):
+    print(total_questions)
     correct_answers = 0
     for key, value in request.form.items():
         if key.startswith('question_'):
-            total_questions += 1
             question_id = int(key.split('_')[1])
             selected_answer_id = int(value)
             correct_answer = Answer.query.filter_by(question_id=question_id, is_correct=True).first()
