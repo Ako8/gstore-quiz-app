@@ -9,29 +9,33 @@
     <link href="{{ url_for('static', filename='gstore-quiz-styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Gstore Quiz</a>
-        </div>
-    </nav>
-    <div class="container mt-4">
-        <div class="main-content">
-            <h1 class="mb-4">მოგესალმებით Gstore-ის ქვიზში</h1>
-            <p class="mb-4">თქვენი ვიქტორინის აქტივობამ შეიძლება მოგაწოდოთ სპეციალური ჯილდოები. აირჩიეთ თემა თქვენი ვიქტორინის დასაწყებად:</p>
-            <div class="row">
-                {% for subject in subjects %}
-                <div class="col-md-3 mb-4">
-                    <a href="{{ url_for('quiz_level', subject_id=subject.id) }}" class="text-decoration-none">
-                        <div class="subject-box">
-                            <i class="subject-icon fas fa-{{ subject.icon }}"></i>
-                            <p class="subject-title">{{ subject.name }}</p>
-                        </div>
-                    </a>
-                </div>
-                {% endfor %}
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" >
+            <img src="{{ url_for('static', filename='1111-1.png') }}" alt="Gstore Quiz Logo"
+                 class="d-inline-block align-top me-2 logo">
+        </a>
+    </div>
+</nav>
+<div class="container mt-4">
+    <div class="main-content">
+        <h1 class="mb-4">მოგესალმებით Gstore-ის ქვიზში</h1>
+        <p class="mb-4">თქვენი ვიქტორინის აქტივობამ შეიძლება მოგაწოდოთ სპეციალური ჯილდოები. აირჩიეთ თემა თქვენი
+            ვიქტორინის დასაწყებად:</p>
+        <div class="row">
+            {% for subject in subjects %}
+            <div class="col-md-3 mb-4">
+                <a href="{{ url_for('quiz_level', subject_id=subject.id) }}" class="text-decoration-none">
+                    <div class="subject-box">
+                        <i class="subject-icon fas fa-{{ subject.icon }}"></i>
+                        <p class="subject-title">{{ subject.name }}</p>
+                    </div>
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

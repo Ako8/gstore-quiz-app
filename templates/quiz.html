@@ -10,7 +10,10 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ url_for('home') }}">Gstore Quiz</a>
+        <a class="navbar-brand d-flex align-items-center" >
+            <img src="{{ url_for('static', filename='1111-1.png') }}" alt="Gstore Quiz Logo"
+                 class="d-inline-block align-top me-2 logo">
+        </a>
     </div>
 </nav>
 <div class="container mt-4">
@@ -21,7 +24,7 @@
                     <p>საგანი: {{ subject.name }}</p>
                     <p>კითხვების რაოდენობა: {{ questions|length }}</p>
                     <div id="timer" class="alert alert-info">
-                        დარჩენილი დრო: <span id="time">5:00</span>
+                        დარჩენილი დრო: <span id="time"></span>
                     </div>
                 </div>
             </div>
@@ -53,6 +56,9 @@
         </div>
     </div>
 </div>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ url_for('static', filename='quiz-timer.js') }}"></script>
 </body>
