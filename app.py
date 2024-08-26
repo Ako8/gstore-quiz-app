@@ -64,7 +64,6 @@ def quiz(subject_id, difficulty):
 
 @app.route('/9d18677d-ea9e-456e-b7d2-946a0da52abb/result/<int:total_questions>', methods=['POST'])
 def result(total_questions):
-    print(total_questions)
     correct_answers = 0
     for key, value in request.form.items():
         if key.startswith('question_'):
