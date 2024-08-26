@@ -4,11 +4,9 @@ __pycache__/
 *$py.class
 
 # Flask
-instance/
 .webassets-cache
 
 # SQLite database
-*.db
 
 # Virtual environment
 venv/
