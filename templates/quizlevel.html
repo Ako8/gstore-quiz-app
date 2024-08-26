@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gstore Quiz - Select Difficulty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='gstore-quiz-styles.css') }}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Gstore Quiz</a>
+    </div>
+</nav>
+<div class="container mt-4">
+    <div class="main-content">
+        <h1 class="mb-4">{{ subject.name }}: აირჩიე ქვიზის სირთულე</h1>
+        <p class="mb-4">ქვიზის სირთულე შეესაბამება საპრიზო თანხას:</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <a href="{{ url_for('quiz', subject_id=subject.id, difficulty='easy') }}" class="text-decoration-none">
+                    <div class="card difficulty-card">
+                        <div class="card-body text-center">
+                            <h2 class="difficulty-title">100 ლარი</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="{{ url_for('quiz', subject_id=subject.id, difficulty='medium') }}"
+                   class="text-decoration-none">
+                    <div class="card difficulty-card">
+                        <div class="card-body text-center">
+                            <h2 class="difficulty-title">200 ლარი</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="{{ url_for('quiz', subject_id=subject.id, difficulty='hard') }}" class="text-decoration-none">
+                    <div class="card difficulty-card">
+                        <div class="card-body text-center">
+                            <h2 class="difficulty-title">300 ლარი</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

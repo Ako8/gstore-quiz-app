@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.navbar {
+    background-color: #4285f4;
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.btn-primary {
+    background-color: #4285f4;
+    border-color: #4285f4;
+}
+
+.btn-primary:hover {
+    background-color: #3367d6;
+    border-color: #3367d6;
+}
+
+.main-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.subject-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 170px;
+}
+
+.subject-box:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.subject-icon {
+    font-size: 3rem;
+    color: #4285f4;
+    margin-bottom: 1rem;
+}
+
+.subject-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.sidebar {
+    top: auto   ;
+    position: sticky;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar-container {
+    position: sticky;
+    top: 20px; /* Adjust this value to control when the stickiness starts */
+    height: calc(100vh - 40px); /* Adjust based on your layout */
+    overflow-y: auto; /* Allow scrolling if content is too long */
+}
+
+.sidebar h5 {
+    text-align: center;
+}
+
+.question-card {
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ... (previous styles remain the same) */
+
+.difficulty-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.difficulty-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.difficulty-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #4285f4;
+}
+
+.difficulty-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
