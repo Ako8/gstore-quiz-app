@@ -130,3 +130,18 @@ body {
 .modal-footer {
     border-top: 1px solid #dee2e6;
 }
+
+.answer-inputs .input-group-text {
+    background-color: #f8f9fa;
+}
+
+.answer-inputs .form-check-input {
+    margin-top: 0;
+}
+
+/* Flash message styles */
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
