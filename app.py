@@ -130,6 +130,7 @@ def add_question():
         # Add answers
         for i in range(4):
             answer_text = request.form[f'answer_{i}']
+            print(answer_text)
             is_correct = (i == correct_answer_index)
             new_answer = Answer(text=answer_text, is_correct=is_correct, question_id=new_question.id)
             db.session.add(new_answer)
