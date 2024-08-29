@@ -169,3 +169,53 @@ body {
         min-height: 150px;
     }
 }
+
+.result-card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 15px;
+}
+
+.result-card .card-body {
+    background-color: #f8f9fa;
+}
+
+.result-prize {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.prize-text {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin: 0;
+}
+
+.result-score {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.score-separator {
+    color: #6c757d;
+    margin: 0 10px;
+}
+
+.result-percentage {
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.percentage-text {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.btn-primary {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+}
