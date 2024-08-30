@@ -21,6 +21,17 @@
         <h1 class="mb-4">{{ subject.name }}: აირჩიე ქვიზის სირთულე</h1>
         <p class="mb-4">ქვიზის სირთულე შეესაბამება საპრიზო თანხას:</p>
         <div class="row">
+            {% if subject.name == 'სახალისო' %}
+            <div class="col-md-4 mb-4">
+                <a href="{{ url_for('quiz', subject_id=subject.id, difficulty='easy') }}" class="text-decoration-none">
+                    <div class="card difficulty-card">
+                        <div class="card-body text-center">
+                            <h2 class="difficulty-title">100 ლარი</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% else %}
             <div class="col-md-4 mb-4">
                 <a href="{{ url_for('quiz', subject_id=subject.id, difficulty='easy') }}" class="text-decoration-none">
                     <div class="card difficulty-card">
@@ -49,6 +60,7 @@
                     </div>
                 </a>
             </div>
+            {% endif %}
         </div>
         <a href="{{ url_for('home') }}" class="btn btn-primary">უკან</a>
     </div>

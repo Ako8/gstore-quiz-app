@@ -9,7 +9,7 @@ def populate_db():
         history = Subject(name="ისტორია", icon="book")
         math = Subject(name="მათემატიკა", icon="calculator")
         literature = Subject(name="ქართული ენა და ლიტერატურა", icon="feather")
-        science = Subject(name="სახალისო", icon="flask")
+        science = Subject(name="სახალისო", icon="laugh-squint")
 
         db.session.add_all([history,  math, literature, science])
         db.session.commit()
