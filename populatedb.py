@@ -58,14 +58,7 @@ def populate_db():
             Answer(text="2021", is_correct=False)
         ]
 
-        q6 = Question(text="სტრაბონის თანახმად, ვინ იყვნენ 'ლაოები' ქართლის სამეფოში",
-                      subject=history, difficulty="hard")
-        q6.answers = [
-            Answer(text="სამეფო მონები", is_correct=True),
-            Answer(text="გათავისუფლებული მონები", is_correct=False),
-            Answer(text="წვრილი ვაჭრები", is_correct=False),
-            Answer(text="მეფის მრჩევლები", is_correct=False)
-        ]
+
 
         q7 = Question(text="გაიხსენეთ იაკობ ხუცესის 'შუშანიკის წამება'. რა არის ასტამი?",
                       subject=literature, difficulty="medium")
@@ -76,14 +69,7 @@ def populate_db():
             Answer(text="აბრეშუმის ხელსაქმე", is_correct=False)
         ]
 
-        q8 = Question(text="რომელი მწკრივის ფორმა არ არის თხრობითი კილოსი?",
-                      subject=literature, difficulty="hard")
-        q8.answers = [
-            Answer(text="პირველი თურმეობითი", is_correct=False),
-            Answer(text="უწყვეტელი", is_correct=False),
-            Answer(text="ხოლმეობითი", is_correct=False),
-            Answer(text="მეორე კავშირებითი", is_correct=True)
-        ]
+
 
         q9 = Question(
             text="გაიხსენეთ ჯემალ ქარჩხაძის 'იგი'. რა მოიხსენიება ნაწარმოებში შემდეგი სიტქვებით: 'ცის დღის თვალი'",
@@ -95,20 +81,9 @@ def populate_db():
             Answer(text="მთვარე", is_correct=False)
         ]
 
-        q10 = Question(
-            text="ორმა მორბენალმა წრიული ფორმის სარბენი ბილიკის ერთი და იმავე ადგილიდან ურთიერთსაწინააღმდეგო "
-                 "მიმართულებით მუდმივი სიჩქარეებით ერთდროულად დაიწყო სირბილი და პირველად ერთმანეთს 6 წუთის შემდეგ "
-                 "შეხვდნენ. იმავე სიჩქარეებით სირბილისას პირველი მორბენალი 5 წუთით უფრო ჩქარა შემოურბენს სარბენ "
-                 "ბილიკს, ვიდრე მეორე მორბენალი. რამდენ წუთში შემოურბენს სარბენ ბილიკს პირველი მორბენალი?",
-            subject=math, difficulty="hard", long_ass_text="პასუხი12")
-        q10.answers = [
-            Answer(text="8 წთ", is_correct=False),
-            Answer(text="10 წთ", is_correct=True),
-            Answer(text="12 წთ", is_correct=False),
-            Answer(text="9 წთ", is_correct=False)
-        ]
 
-        db.session.add_all([q1, q2, q3, q4, q5, q6, q7, q8, q9, q10])
+
+        db.session.add_all([q1, q2, q3, q4, q5, q7, q9])
         db.session.commit()
 
 
