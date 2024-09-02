@@ -80,6 +80,9 @@ def quiz(subject_id, difficulty):
 
 @app.route('/9d18677d-ea9e-456e-b7d2-946a0da52abb/result/<int:total_questions>/<string:saprizo>', methods=['POST'])
 def result(total_questions, saprizo):
+    answer = None
+    if saprizo == "300":
+        answer = request.form.get("text_answer_one")
     correct_answers = 0
     for key, value in request.form.items():
         if key.startswith('question_'):
@@ -91,7 +94,7 @@ def result(total_questions, saprizo):
 
     score_percentage = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
     return render_template('result.html', correct_answers=correct_answers, total_questions=total_questions,
-                           score_percentage=score_percentage, saprizo=saprizo)
+                           score_percentage=score_percentage, saprizo=saprizo, answer=answer)
 
 
 def allowed_file(filename):

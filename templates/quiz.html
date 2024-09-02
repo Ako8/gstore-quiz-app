@@ -43,27 +43,43 @@
                 <form id="quizForm" action="{{ url_for('result', total_questions=questions|length, saprizo=saprizo) }}"
                       method="post">
                     {% for question in questions %}
-                    <div class="card question-card mb-4">
+                    <div class="card question-card mb-4 shadow-sm">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <p>{{ question.text }}</p>
-                                    {% for answer in question.answers %}
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="question_{{ question.id }}"
-                                               id="answer_{{ question.id }}_{{ loop.index }}" value="{{ answer.id }}">
-                                        <label class="form-check-label" for="answer_{{ question.id }}_{{ loop.index }}">
-                                            {{ answer.text }}
-                                        </label>
+                                    <p class="question-text mb-4">{{ question.text }}</p>
+                                    {% if question.difficulty == "hard" %}
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="text_answer_one"
+                                                  id="text_answer_{{ question.id }}" rows="5"
+                                                  placeholder="დაწერე პასუხი აქ..."></textarea>
                                     </div>
-                                    {% endfor %}
+                                    {% else %}
+                                    <div class="answer-options">
+                                        {% for answer in question.answers %}
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio"
+                                                   name="question_{{ question.id }}"
+                                                   id="answer_{{ question.id }}_{{ loop.index }}"
+                                                   value="{{ answer.id }}">
+                                            <label class="form-check-label"
+                                                   for="answer_{{ question.id }}_{{ loop.index }}">
+                                                {{ answer.text }}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
                                 </div>
                                 <div class="col-md-4">
                                     {% if question.image_filename %}
                                     <img src="{{ url_for('static', filename='question_images/' + question.image_filename) }}"
-                                         alt="Question Image" class="img-fluid question-image">
+                                         alt="Question Image" class="img-fluid question-image rounded">
                                     {% else %}
-                                    <div class="no-image-placeholder"></div>
+                                    <div class="no-image-placeholder bg-light rounded d-flex align-items-center justify-content-center"
+                                         style="height: 200px;">
+                                        <span class="text-muted">სურათი არ არის</span>
+                                    </div>
                                     {% endif %}
                                 </div>
                             </div>
