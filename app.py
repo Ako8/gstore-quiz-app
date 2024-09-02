@@ -28,6 +28,7 @@ class Question(db.Model):
     subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'), nullable=False)
     difficulty = db.Column(db.String(20), nullable=False)
     image_filename = db.Column(db.String(255))
+    long_ass_text = db.Column(db.Text())
     answers = db.relationship('Answer', backref='question', lazy=True, cascade="all, delete-orphan")
 
 
@@ -81,8 +82,17 @@ def quiz(subject_id, difficulty):
 @app.route('/9d18677d-ea9e-456e-b7d2-946a0da52abb/result/<int:total_questions>/<string:saprizo>', methods=['POST'])
 def result(total_questions, saprizo):
     answer = None
+    question = None
     if saprizo == "300":
-        answer = request.form.get("text_answer_one")
+        for key, value in request.form.items():
+            if key.startswith('text_answer_'):
+                print(key)
+                question_id = int(key.split('_')[2])
+                print(question_id)
+                question = Question.query.get(question_id)
+                answer = request.form.get(f"text_answer_{question_id}")
+
+
     correct_answers = 0
     for key, value in request.form.items():
         if key.startswith('question_'):
@@ -92,8 +102,9 @@ def result(total_questions, saprizo):
             if correct_answer.id == selected_answer_id:
                 correct_answers += 1
 
+
     score_percentage = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
-    return render_template('result.html', correct_answers=correct_answers, total_questions=total_questions,
+    return render_template('result.html',question=question, correct_answers=correct_answers, total_questions=total_questions,
                            score_percentage=score_percentage, saprizo=saprizo, answer=answer)
 
 
@@ -108,6 +119,7 @@ def add_question():
         subject_id = request.form['subject']
         difficulty = request.form['difficulty']
         question_text = request.form['question_text']
+        long_ass_text = request.form['long_ass_text']
         correct_answer_index = int(request.form['correct_answer'])
 
         # Handle image upload
@@ -125,7 +137,8 @@ def add_question():
             text=question_text,
             subject_id=subject_id,
             difficulty=difficulty,
-            image_filename=image_filename
+            image_filename=image_filename,
+            long_ass_text=long_ass_text
         )
         db.session.add(new_question)
         db.session.commit()

@@ -50,7 +50,7 @@
                                     <p class="question-text mb-4">{{ question.text }}</p>
                                     {% if question.difficulty == "hard" %}
                                     <div class="form-group">
-                                        <textarea class="form-control" name="text_answer_one"
+                                        <textarea class="form-control" name="text_answer_{{ question.id }}"
                                                   id="text_answer_{{ question.id }}" rows="5"
                                                   placeholder="დაწერე პასუხი აქ..."></textarea>
                                     </div>
